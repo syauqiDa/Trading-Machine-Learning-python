@@ -1,0 +1,22 @@
+input_path: data/sample/xauusd_synthetic.csv
+output_path: data/processed/xauusd_15m.parquet
+format: csv
+columns:
+  timestamp: timestamp
+  open: open
+  high: high
+  low: low
+  close: close
+  volume: volume
+  bid: bid
+  ask: ask
+  spread: spread
+source_timezone: UTC
+broker_timezone: UTC
+trading_timezone: America/New_York
+base_frequency: 15min
+timeframes: [15min, 1h, 4h]
+allow_ohlc_forward_fill: false
+expected_frequency: 15min
+outlier_zscore: 8.0
+

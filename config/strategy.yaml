@@ -1,0 +1,54 @@
+swing:
+  left_bars: 3
+  right_bars: 3
+structure:
+  break_buffer_atr: 0.05
+liquidity:
+  tolerance_mode: atr
+  tolerance_value: 0.12
+  sweep_reclaim_bars: 3
+  lookback_bars: 48
+displacement:
+  atr_period: 14
+  min_range_atr: 1.15
+  min_body_ratio: 0.58
+  min_close_location: 0.68
+  require_structure_break: false
+  min_consecutive_bars: 1
+  min_volume_ratio: 1.0
+fair_value_gap:
+  min_size_atr: 0.03
+  max_age_bars: 48
+  invalidate_on_close: true
+premium_discount:
+  range_lookback_bars: 96
+order_block:
+  enabled: true
+  max_lookback_bars: 8
+  max_age_bars: 64
+  boundary: full_candle
+sessions:
+  timezone: America/New_York
+  windows:
+    asia: {start: "19:00", end: "00:00", enabled: true}
+    london: {start: "02:00", end: "05:00", enabled: true}
+    new_york: {start: "07:00", end: "10:00", enabled: true}
+    london_close: {start: "10:00", end: "12:00", enabled: false}
+setup:
+  enabled_conditions:
+    bias: true
+    premium_discount: false
+    liquidity_sweep: true
+    structure_shift: false
+    displacement: true
+    fair_value_gap: true
+    retracement: false
+    session: true
+    spread: true
+  event_lookback_bars: 12
+  max_spread: 0.80
+  stop_buffer_atr: 0.10
+  target_mode: risk_reward
+  target_risk_reward: 2.0
+  min_risk_reward: 1.25
+

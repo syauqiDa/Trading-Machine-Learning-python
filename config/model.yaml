@@ -1,0 +1,37 @@
+dataset_path: data/processed/ml_dataset.parquet
+setups_path: data/processed/xauusd_setups.parquet
+output_dir: models/latest
+reports_dir: reports/latest_ml
+random_seed: 42
+neutral_policy: zero
+max_holding_bars: 48
+features:
+  - direction
+  - atr
+  - realized_volatility
+  - return_1
+  - return_4
+  - candle_range_atr
+  - body_ratio
+  - rolling_position
+  - spread
+  - hour
+  - weekday
+  - session
+  - volatility_regime
+  - sweep_penetration
+  - sweep_recovery_strength
+  - fvg_size_atr
+  - proposed_rr
+models: [dummy, logistic, random_forest, gradient_boosting, xgboost]
+calibration_method: sigmoid
+probability_thresholds: [0.50, 0.55, 0.60]
+walk_forward:
+  mode: expanding
+  train_size: 40
+  validation_size: 12
+  test_size: 12
+  step_size: 12
+  purge_bars: 48
+  embargo_bars: 4
+  final_test_fraction: 0.20
